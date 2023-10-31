@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
+import numpy as np
 
 def draw_triangle():
     # Coordinates of the three vertices
@@ -12,9 +13,11 @@ def draw_triangle():
     triangle = patches.Polygon(vertices, closed=True, edgecolor='r', facecolor='none')
     ax.add_patch(triangle)
     
-    # Set the range of the axes
-    ax.set_xlim(min(v[0] for v in vertices) - 1, max(v[0] for v in vertices) + 1)
-    ax.set_ylim(min(v[1] for v in vertices) - 1, max(v[1] for v in vertices) + 1)
+    # Set integer ticks for the x-axis and y-axis
+    x_ticks = np.arange(-2, 5, 1)  # Integer ticks from -2 to 5, each grid is 1
+    y_ticks = np.arange(-2, 5, 1)  # Integer ticks from -2 to 5, each grid is 1
+    plt.xticks(x_ticks)
+    plt.yticks(y_ticks)
     
     # Set axis labels
     ax.set_xlabel('X')
